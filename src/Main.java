@@ -5,10 +5,10 @@ public class Main {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        task2();
+        task23();
     }
 
-    public static void task2() {
+    public static void task23() {
         String inputFilename = getFilenameFromUserFor("input");
         String outputFilename = getFilenameFromUserFor("output");
         try (
@@ -31,10 +31,11 @@ public class Main {
                 fileOutputStream.write(Integer.toString(a / b).getBytes()[0]);
             } catch (Exception e) {
                 reportError(e.getMessage());
+                throw e;
             }
         } catch (FileNotFoundException e) {
             reportError(e.getMessage());
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
